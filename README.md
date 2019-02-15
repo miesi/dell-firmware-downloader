@@ -14,10 +14,9 @@ To update a server you simply copy the content of this per server type directory
 ## Install
 The scripts are only tested with CentOS 7 / EPEL Python 3.6
 
-`
-yum install yum install python36-requests python36-pip
-pip3.6 install tabulate
-`
+`yum install python36-requests python36-pip`
+
+`pip3.6 install tabulate`
 
 ## Run
 
