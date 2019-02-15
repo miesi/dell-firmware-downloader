@@ -14,13 +14,15 @@ To update a server you simply copy the content of this per server type directory
 ## Install
 The scripts are only tested with CentOS 7 / EPEL Python 3.6
 
-=yum install yum install python36-requests python36-pip=
-=pip3.6 install tabulate=
+`
+yum install yum install python36-requests python36-pip
+pip3.6 install tabulate
+`
 
 ## Run
 
-- adjust paths and server types in =downloader.sh=
-- run downloader.sh and get a coffee
+- adjust paths and server types in `downloader.sh`
+- run `downloader.sh` and get a coffee
 
 
 ## Thanks
@@ -28,11 +30,11 @@ I'd like to thank @frinke for his work on bios.py. The beautiful parts are his, 
 
 ## Dell tools
 
-* dsu - Dell System Update
+dsu - Dell System Update
 - never got it to actually update any component
 - did not manage to clone the repository to a local Server
 
-* iDRAC Lifecycle Controller
+iDRAC Lifecycle Controller
 - based on a roughly 2 weeks old catalog
 - once a update job for a device is created, it is not overwritten by a newer one
 - sometimes it happens that a device to update gets stuck can not be updated any further (e.g. BIOS update to 1.5.6 did not work, so it is impossible to update to 1.6.x using any iDRAC method)
