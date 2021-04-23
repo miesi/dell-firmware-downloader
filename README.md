@@ -3,7 +3,7 @@ Download all Firmware files for a set of Server Types and OSes.
 
 Dell also provides tooling for firmware updates on Linux, see comments below.
 
-These Scripts download all available Files for a set of Server Types.
+This script style Java tool download all available Files for a set of Server Types.
 
 The files are saved in the same structure as on downloads.dell.com
 
@@ -11,21 +11,33 @@ In a second location a per server type directory is created with softlinks to al
 
 To update a server you simply copy the content of this per server type directory to the server to update and run the file one by one.
 
+## Build
+You need to have a working environment for `mvn` command.
+
+```
+git clone https://github.com/miesi/dell-firmware-downloader
+cd dell-firmware-downloader
+mvn clean install
+```
+
+ should do the trick and produce a rpm in `target/`.
+
 ## Install
-The scripts are only tested with CentOS 7 / EPEL Python 3.6
+`yum install target/DellUpdateLoader-1.3-1.noarch.rpm`
 
-`yum install python36-requests python36-pip`
+This will automatically install java-headless.
 
-`pip3.6 install tabulate`
+The scripts are only tested with CentOS 7.
 
 ## Run
 
-- adjust paths and server types in `downloader.sh`
+- adjust paths and server types in `src/main/bash/downloader.sh`
 - run `downloader.sh` and get a coffee
 
 
 ## Thanks
-I'd like to thank @frinke for his work on bios.py. The beautiful parts are his, mine are the ugly.
+I'd like to thank @frinke for his work on original `bios.py`. I removed it because
+it references an outdate api at Dell.
 
 ## Dell tools
 

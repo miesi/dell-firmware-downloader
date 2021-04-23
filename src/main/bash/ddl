@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# Simple wrapper around jar
+#
+
+/usr/bin/java -jar /usr/local/sbin/DellUpdateLoader.jar $*

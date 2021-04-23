@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.mieslinger</groupId>
+    <artifactId>DellUpdateLoader</artifactId>
+    <version>1.3</version>
+    <packaging>jar</packaging>
+    
+    <name>Dell Update Downloader</name>
+    <description>Downloads the latest DUDs from Dell (not based on "the" catalog)</description>
+
+    <organization>
+        <name>IONOS SE</name>
+        <url>https://www.ionos.com/</url>
+    </organization>
+  
+    <dependencies>
+        <dependency>
+            <groupId>com.github.spullara.cli-parser</groupId>
+            <artifactId>cli-parser</artifactId>
+            <version>1.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>de.mieslinger.dellupdateloader.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>de.dentrassi.maven</groupId>
+                <artifactId>rpm</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+          
+                        <goals>
+                            <goal>rpm</goal>
+                        </goals>
+            
+                        <configuration>
+                            <skipSigning>true</skipSigning>
+                            <attach>false</attach> <!-- don't attach RPM -->
+                            <license>MIT</license>
+                            <distribution>No</distribution>
+                            <group>Application/Collectors</group>
+                            <packager>thomas.mieslinger@ionos.com</packager>
+                            <prefix>/usr/local</prefix>
+                            <!--<changelogFile>src/changelog</changelogFile>-->
+                            <requires>
+                                <require>java-headless &gt; 1.8</require>
+                            </requires>
+
+                            <entries>
+                                <entry>
+                                    <name>/usr/local/sbin/ddl</name>
+                                    <file>src/main/bash/ddl</file>
+                                    <user>root</user>
+                                    <group>root</group>
+                                    <mode>0755</mode>
+                                </entry>
+                                <entry>
+                                    <name>/usr/local/sbin/DellUpdateLoader.jar</name>
+                                    <file>target/DellUpdateLoader-${project.version}-jar-with-dependencies.jar</file>
+                                    <user>root</user>
+                                    <group>root</group>
+                                    <mode>0444</mode>
+                                </entry>                
+                            </entries>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+      
+     
+        </plugins>
+    </build>
+</project>
