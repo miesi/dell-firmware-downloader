@@ -149,6 +149,7 @@ public class Main {
             outFile.close();
 
             outFile = new PrintWriter(new File(perserverlinks));
+            outFile.printf("rm -rf %s/%s/%s\n", perserverdir, "poweredge-" + model, os);
             outFile.printf("mkdir -p %s/%s/%s\n", perserverdir, "poweredge-" + model, os);
             outFile.printf("cd %s/%s/%s\n", perserverdir, "poweredge-" + model, os);
             for (DriverListData d : root.driverListData) {
