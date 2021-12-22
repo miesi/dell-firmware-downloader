@@ -102,7 +102,7 @@ public class Main {
         try {
             List<String> unparsed = Args.parseOrExit(Main.class, args);
 
-            String urlStr = "https://www.dell.com/support/driver/de-de/ips/api/driverlist/getdriversbyproduct?productcode=poweredge-" + model + "&oscode=" + os + "&lob=PowerEdge";
+            String urlStr = "https://www.dell.com/support/driver/de-de/ips/api/driverlist/fetchdriversbyproduct?productcode=poweredge-" + model + "&oscode=" + os + "&lob=PowerEdge";
             logger.debug("url: " + urlStr);
 
             URL url = new URL(urlStr);
