@@ -42,8 +42,9 @@ it references an outdated api at Dell.
 ## Dell tools
 
 dsu - Dell System Update
-- never got it to actually update any component
-- did not manage to clone the repository to a local Server
+- since 1.6 it only deals with iDRAC9, but driver page lists R230 etc as supported.
+- can not use a local copy of Dell Repository
+- commandline looks like this: `dsu --remote=admin:XXXXXX@server.idrac.ip --rsystemtype=iDRAC --source-type=REPOSITORY -i --ignore-signature --proxy=http:///:@proxy.company:3128 --log-level=4`
 
 iDRAC Lifecycle Controller
 - based on a roughly 2 weeks old catalog
