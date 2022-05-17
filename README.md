@@ -37,7 +37,7 @@ The scripts are only tested with CentOS 7.
 
 ## Thanks
 I'd like to thank @frinke for his work on original `bios.py`. I removed it because
-it references an outdate api at Dell.
+it references an outdated api at Dell.
 
 ## Dell tools
 
