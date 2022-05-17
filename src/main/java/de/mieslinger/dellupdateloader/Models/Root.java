@@ -96,5 +96,6 @@ public class Root {
     public boolean isAuthenticatedUser;
     @JsonProperty("UserType") 
     public Object userType;
-
+    @JsonProperty("IsSingleCpuProduct")
+    public boolean IsSingleCpuProduct;
 }
