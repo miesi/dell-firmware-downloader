@@ -98,4 +98,6 @@ public class Root {
     public Object userType;
     @JsonProperty("IsSingleCpuProduct")
     public boolean IsSingleCpuProduct;
+    @JsonProperty("IsOldTag")
+    public boolean IsOldTag;
 }
