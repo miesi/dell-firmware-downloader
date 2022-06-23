@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.mieslinger</groupId>
     <artifactId>DellUpdateLoader</artifactId>
-    <version>1.6.2</version>
+    <version>1.6.3</version>
     <packaging>jar</packaging>
     
     <name>Dell Update Downloader</name>

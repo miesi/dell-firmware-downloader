@@ -97,7 +97,9 @@ public class Root {
     @JsonProperty("UserType") 
     public Object userType;
     @JsonProperty("IsSingleCpuProduct")
-    public boolean IsSingleCpuProduct;
+    public boolean isSingleCpuProduct;
     @JsonProperty("IsOldTag")
-    public boolean IsOldTag;
+    public boolean isOldTag;
+    @JsonProperty("OldTagDriversThreshold") 
+    public Object oldTagDriversThreshold;
 }
